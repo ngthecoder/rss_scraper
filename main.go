@@ -39,8 +39,9 @@ func main() {
 		log.Fatal("Cannot connect to a database:", err)
 	}
 
+	db := database.New(conn)
 	apiCfg := apiConfig{
-		DB: database.New(conn),
+		DB: db,
 	}
 
 	router := chi.NewRouter()
